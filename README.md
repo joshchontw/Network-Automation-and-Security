@@ -1,5 +1,4 @@
 # S144HomeLab
 Start of the network/infrastructure automation journey.
 
-Phase 1:
-  Work with the Netmiko library to push commands to multiple vendor's networking devices at once.
+Working with Ansible to automate and quickly deploy changes to multiple devices at once.
