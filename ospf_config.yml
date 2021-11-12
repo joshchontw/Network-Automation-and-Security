@@ -1,0 +1,49 @@
+---
+
+- name: OSPF configuration on Cisco
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+  become: yes
+
+  tasks:
+    - name: OSPF config - Cisco
+      ios_command:
+        commands: show version
+      register: output
+
+    - name: Show interfaces
+      debug: 
+        msg: "{{ output.stdout_lines }}"
+
+- name: OSPF configuration on Arista
+  gather_facts: true
+  connection: network_cli
+  hosts: arista
+
+  tasks: 
+    - name : OSPF config - Arista
+      eos_command:
+        commands: show ip int br
+      register: output
+
+    - name: Show interfaces
+      debug:
+        msg: "{{ output.stdout_lines }}"
+
+- name: OSPF configuration on Juniper
+  gather_facts: true
+  connection: netconf
+  hosts: juniper
+
+  tasks:
+    - name : OSPF config - Juniper
+      junos_command:
+        commands: show version
+      register: output
+
+    - name: Show interfaces
+      debug:
+        msg: "{{ output.stdout_lines }}"
+...
+
