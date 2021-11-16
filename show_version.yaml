@@ -1,48 +1,48 @@
 ---
+### This playbook shows the version that the Cisco, Arista, and Juniper devices are running
 
-- name: OSPF configuration on Cisco
+- name: Show version on Cisco
   gather_facts: true
   connection: network_cli
   hosts: cisco
-  become: yes
 
   tasks:
-    - name: OSPF config - Cisco
+    - name: Show version - Cisco
       ios_command:
         commands: show version
       register: output
 
-    - name: Show interfaces
+    - name: Show version output
       debug: 
         msg: "{{ output.stdout_lines }}"
 
-- name: OSPF configuration on Arista
+- name: Show version on Arista
   gather_facts: true
   connection: network_cli
   hosts: arista
 
   tasks: 
-    - name : OSPF config - Arista
+    - name : Show version - Arista
       eos_command:
-        commands: show ip int br
+        commands: show version
       register: output
 
-    - name: Show interfaces
+    - name: Show version output
       debug:
         msg: "{{ output.stdout_lines }}"
 
-- name: OSPF configuration on Juniper
+- name: Show version on Juniper
   gather_facts: true
   connection: netconf
   hosts: juniper
 
   tasks:
-    - name : OSPF config - Juniper
+    - name : Show version - Juniper
       junos_command:
         commands: show version
       register: output
 
-    - name: Show interfaces
+    - name: Show version output
       debug:
         msg: "{{ output.stdout_lines }}"
 ...
