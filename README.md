@@ -26,3 +26,10 @@ Attached are the routing tables for the routers, before the switch to OSPF. Thes
 ![routetablejuniper](https://user-images.githubusercontent.com/81763406/142063457-7a8bf1f5-53a7-4994-8c8b-75b95a0ae52f.png)
 
 > As we can see from the output, the routing protocol in place is RIP.
+
+#### After running 'ansible-playbook ospf_config.yaml'
+![routetableospfcisco](https://user-images.githubusercontent.com/81763406/142513513-392598e2-0e1c-448a-a1cd-b2d1770b3641.png)
+![routetableospfjuniper](https://user-images.githubusercontent.com/81763406/142513540-805feab8-37ff-4c40-96d9-59f15fad9fea.png)
+
+> The routers are now learning their routes through OSPF
+
