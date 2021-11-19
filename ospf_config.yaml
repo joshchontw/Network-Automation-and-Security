@@ -1,0 +1,45 @@
+---
+### This playbook configures the OSPF routing protocol on a Cisco and Juniper router
+
+- name: Configure OSPF on Cisco
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+
+  tasks:
+    - name: OSPF - Cisco
+      ios_config:
+        lines:
+          - router-id 192.168.121.2
+          - network 192.168.124.0 0.0.0.255 area 0
+          - network 192.168.1.0 0.0.0.255 area 0
+          - network 192.168.121.0 0.0.0.255 area 0
+        parents: router ospf 1
+
+- name: Ignore MTU mismatch on Cisco
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+
+  tasks:
+    - name: Ignore MTU mismatch
+      ios_config:
+        lines:           
+         - ip ospf mtu-ignore
+        parents: interface fastethernet2/0
+
+- name: Configure OSPF on Juniper
+  gather_facts: true
+  connection: netconf
+  hosts: juniper
+
+  tasks:
+    - name : OSPF - Juniper
+      junos_config:
+        lines:
+          - set routing-options router-id 192.168.121.1
+          - set protocols ospf area 0 interface em2.0
+          - set protocols ospf area 0 interface em3.0
+
+...
+
