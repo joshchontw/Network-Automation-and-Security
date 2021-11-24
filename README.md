@@ -20,16 +20,16 @@ Just with one playbook, I am able to connect to multiple devices (different vend
 
 ### Task 2: Changing the routing protcol from RIP to OSPF
 With Ansible, I will transition the network from RIP to OSPF.
-Attached are the routing tables for the routers, before the switch to OSPF. These routing tables were saved to text files, after running the command 'ansible-playbook route_table_before_ospf.yaml'.
+Attached are the routing tables for the routers, before the switch to OSPF. These routing tables were saved to text files, after running the command 'ansible-playbook show_route_table.yaml'.
 
 ![routetablecisco](https://user-images.githubusercontent.com/81763406/142063444-375c68e6-4e9b-427d-baa0-380df4283d36.png)
 ![routetablejuniper](https://user-images.githubusercontent.com/81763406/142063457-7a8bf1f5-53a7-4994-8c8b-75b95a0ae52f.png)
 
 > As we can see from the output, the routing protocol in place is RIP.
 
-#### After running 'ansible-playbook ospf_config.yaml'
-![routetableospfcisco](https://user-images.githubusercontent.com/81763406/142513513-392598e2-0e1c-448a-a1cd-b2d1770b3641.png)
-![routetableospfjuniper](https://user-images.githubusercontent.com/81763406/142513540-805feab8-37ff-4c40-96d9-59f15fad9fea.png)
+#### After running 'ansible-playbook ospf_config.yaml' and 'show_route_table.yaml'
+![image](https://user-images.githubusercontent.com/81763406/143314284-d215610e-2fd9-4e3a-8418-a1e2292ac3d1.png)
+![image](https://user-images.githubusercontent.com/81763406/143314369-dbe9569a-2990-4eb3-86ca-c65f3d83b0e1.png)
 
 > The routers are now learning their routes through OSPF
 
