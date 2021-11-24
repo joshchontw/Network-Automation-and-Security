@@ -12,7 +12,7 @@ Juniper1
 [juniper:vars]
 ansible_network_os=junos
 ansible_user=ansible
-ansible_password=Koreanboy94
+ansible_password=Juniper
 
 [arista]
 Switch1

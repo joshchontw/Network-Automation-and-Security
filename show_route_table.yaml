@@ -1,6 +1,5 @@
 ---
 ### This playbook saves the route table of various devices to a file
-### and shows the state before migrating to OSPF
 
 - name: Show route table on Cisco
   gather_facts: true
@@ -14,7 +13,7 @@
       register: output
 
     - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}.txt"
+      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
 
 - name: Show route table on Arista
   gather_facts: true
@@ -28,7 +27,7 @@
       register: output
 
     - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}.txt"
+      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
 
 - name: Show route table on Juniper
   gather_facts: true
@@ -42,7 +41,7 @@
       register: output
 
     - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}.txt"
+      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
 
 ...
 
