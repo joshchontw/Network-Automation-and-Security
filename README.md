@@ -1,5 +1,4 @@
-# AnsibleLab
-## Start of the network/infrastructure automation journey
+# Start of the network/infrastructure automation journey
 
 ![LabTopology](https://user-images.githubusercontent.com/81763406/142034957-8396695a-9d2b-435e-99ef-abcc7c951b6f.png)
 
