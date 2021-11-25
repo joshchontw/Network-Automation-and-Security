@@ -3,7 +3,7 @@ Since the start of my schooling, I've known that automation was a big topic, tha
 ##### NOTE 1: Firewall setup is documented in FortiGateFW.md
 ##### NOTE 2: Details on continuous integration with Github Actions is documented in YAML-Lint.md
 ## My Lab
-![image](https://user-images.githubusercontent.com/81763406/143357359-0d3b9952-06a9-46cb-8a1c-3a5dd1579aea.png)
+![image](https://user-images.githubusercontent.com/81763406/143462878-e7c4870d-aebd-4aa1-9582-f49c22a5aa05.png)
 
 In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I will be using Ansible to connect to all devices (except the firewall) and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
