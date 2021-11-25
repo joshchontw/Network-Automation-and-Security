@@ -4,7 +4,7 @@ Since the start of my schooling, I've known that automation was a big topic, tha
 ## My Lab
 ![image](https://user-images.githubusercontent.com/81763406/143357359-0d3b9952-06a9-46cb-8a1c-3a5dd1579aea.png)
 
-In my lab, there is a Cisco and Juniper router, along with three Arista switches. I will be using Ansible to connect to all devices and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
+In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I will be using Ansible to connect to all devices and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
 ### Task 1: Retrieving the version of the devices
 ##### After running 'ansible-playbook show_version.yaml'
