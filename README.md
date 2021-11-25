@@ -2,7 +2,7 @@
 Since the start of my schooling, I've known that automation was a big topic, that it was not a fad, and it was here to stay. In my eyes, the most prevalent tool for configuration management in the context of networking devices is and has been Ansible for a while. Join me as I try to become proficient at Ansible and earn a gold star, which would be my greatest accomplishment in life... :D
 ##### NOTE: Firewall setup will be documented in FortigateFW.md
 ## My Lab
-![image](https://user-images.githubusercontent.com/81763406/143351684-8ffba5ed-125d-4147-abf4-831b13c12398.png)
+![image](https://user-images.githubusercontent.com/81763406/143357359-0d3b9952-06a9-46cb-8a1c-3a5dd1579aea.png)
 
 In my lab, there is a Cisco and Juniper router, along with three Arista switches. I will be using Ansible to connect to all devices and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
