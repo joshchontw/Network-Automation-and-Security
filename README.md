@@ -1,6 +1,7 @@
 # Start of the network/infrastructure automation journey
 Since the start of my schooling, I've known that automation was a big topic, that it was not a fad, and it was here to stay. In my eyes, the most prevalent tool for configuration management in the context of networking devices is and has been Ansible for a while. Join me as I try to become proficient at Ansible and earn a gold star, which would be my greatest accomplishment in life... :D
-##### NOTE: Firewall setup will be documented in FortiGateFW.md
+##### NOTE 1: Firewall setup is documented in FortiGateFW.md
+##### NOTE 2: Details on continuous integration with Github Actions is documented in YAML-Lint.md
 ## My Lab
 ![image](https://user-images.githubusercontent.com/81763406/143357359-0d3b9952-06a9-46cb-8a1c-3a5dd1579aea.png)
 
