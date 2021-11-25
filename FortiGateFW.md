@@ -10,7 +10,7 @@ In our case, the service has to be set to 'ALL'. Ansible remotely logs into Juni
 
 > Details of the source and destination parameters
 
-![image](https://user-images.githubusercontent.com/81763406/143372951-cf9cc9a6-aa25-40b6-8689-abd108501d64.png)
+![image](https://user-images.githubusercontent.com/81763406/143490466-08da7a44-caa4-429a-a5dc-bf77cc7b0669.png)
 ![image](https://user-images.githubusercontent.com/81763406/143372978-54e627a1-b599-4929-922d-9807beded2b4.png)
 
 Just enabling this rule will not allow our control node to remotely access our network devices. For that, we have to enable OSPF on the FortiGate firewall, to learn and share routes with the whole network.
