@@ -21,16 +21,24 @@ In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three 
 ### Task 2: Creating VLANs on the switches and configuring Router-on-a-stick for the Cisco router
 This task will configure the proper port types on the switch and create sub-interfaces on the Cisco router so that PC1 and PC2 can communicate with each other and the rest of the network.
 
-> Ping test (and failure) from PC1 to PC2 before running any playbooks: 
+> Ping (and failure) from PC1 to PC2 before running any VLAN configuration playbooks: 
+
 ![image](https://user-images.githubusercontent.com/81763406/143507543-520a9bd3-b36b-458e-b7e0-55d483811ded.png)
 
-> Ping test after running playbook 'vlan_config.yaml':
+> Ping from PC1 to PC2 after running playbook 'vlan_config.yaml'. The PC in VLAN100 is able to communicate with VLAN200 thanks to ROAS:
+
 ![image](https://user-images.githubusercontent.com/81763406/143508544-e1ee367c-869c-40b5-9fa0-815dc86da5de.png)
 
+> Ping from PC2 to PC3 (in subnet 192.168.123.0/24):
+
+![image](https://user-images.githubusercontent.com/81763406/143511480-790a8b53-6335-4d71-a07c-f76e67c3db15.png)
+
 > Showing the sub-interfaces on the Cisco router:
+
 ![image](https://user-images.githubusercontent.com/81763406/143508564-83eb1155-3d01-4bb0-b8a0-ac88b5cb4263.png)
 
 > Showing the trunk and access ports on the Arista switch:
+
 ![image](https://user-images.githubusercontent.com/81763406/143508612-157b9182-4b24-49cc-b6e3-c9ea1a38049f.png)
 
 #### With the 'vlan_config.yaml', the control machine is able to SSH into the network devices and apply VLAN configuration all at once.
@@ -50,3 +58,4 @@ Attached are the routing tables for the routers, before the switch to OSPF. Thes
 
 > The routers are now learning their routes through OSPF
 -----------------------------------------
+### Task 4: Adding access control lists on the routers
