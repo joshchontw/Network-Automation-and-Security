@@ -15,20 +15,6 @@
     - name: Save route table to file
       copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
 
-- name: Show route table on Arista
-  gather_facts: true
-  connection: network_cli
-  hosts: arista
-
-  tasks: 
-    - name : Show route table - Arista
-      eos_command:
-        commands: show ip route
-      register: output
-
-    - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
-
 - name: Show route table on Juniper
   gather_facts: true
   connection: netconf

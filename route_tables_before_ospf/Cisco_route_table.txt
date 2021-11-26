@@ -8,7 +8,9 @@ Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
 
 Gateway of last resort is not set
 
-O    192.168.123.0/24 [110/2] via 192.168.121.1, 00:00:59, FastEthernet2/0
+R    192.168.123.0/24 [120/1] via 192.168.121.1, 00:00:10, FastEthernet2/0
 C    192.168.121.0/24 is directly connected, FastEthernet2/0
 C    192.168.124.0/24 is directly connected, FastEthernet0/0
+C    192.168.200.0/24 is directly connected, FastEthernet0/1.200
 C    192.168.1.0/24 is directly connected, FastEthernet0/1
+C    192.168.100.0/24 is directly connected, FastEthernet0/1.100

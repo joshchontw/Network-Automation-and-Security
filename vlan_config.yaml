@@ -1,0 +1,50 @@
+---
+### This playbook configures VLANs on the Arista switch 
+### and subinterfaces on Cisco router
+
+- name: Configure VLANs on Arista switch
+  gather_facts: true
+  connection: network_cli
+  hosts: arista
+
+  tasks:
+    - name: Ethernet1 configuration
+      eos_l2_interface:
+        name: Ethernet1
+        mode: trunk
+        trunk_allowed_vlans: 1,100, 200
+    - name: Ethernet2 configuration
+      eos_l2_interface:
+        name: Ethernet2
+        mode: access
+        access_vlan: 100
+    - name: Ethernet3 configuration
+      eos_l2_interface:        
+        name: Ethernet3
+        mode: access
+        access_vlan: 200
+
+- name: Configure subinterfaces on Cisco router
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+
+  tasks:
+    - name: Subinterface FastEthernet0/1.100
+      ios_config:
+        lines:
+          - encapsulation dot1Q 100
+          - ip address 192.168.100.1 255.255.255.0
+          - no shutdown
+        parents: interface fastethernet0/1.100
+
+    - name: Subinterface FastEthernet0/1.200
+      ios_config:
+        lines:
+          - encapsulation dot1Q 200
+          - ip address 192.168.200.1 255.255.255.0
+          - no shutdown
+        parents: interface fastethernet0/1.200
+
+...
+
