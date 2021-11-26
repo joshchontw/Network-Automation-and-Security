@@ -28,7 +28,7 @@ Just enabling this rule will not allow our control node to remotely access our n
 > Output showing that the control node can ping our Cisco router
 ![image](https://user-images.githubusercontent.com/81763406/143498833-6fc5930c-1ca4-4a13-b035-b386ec37966f.png)
 
-> Output showing that the control node *CANNOT* ping PC5. This is intentional as we only need the control node to be able to SSH into the network devices.
+> Output showing that the control node CANNOT ping PC5 (by design). We only need the control node to SSH into network devices
 ![image](https://user-images.githubusercontent.com/81763406/143499109-0d92ef7f-4f70-4bb7-b3e8-50683a8d806a.png)
 
 #### All of this shows that the firewall is not preventing our control node from accessing our network. For our purposes, the firewall serves its purpose. I am well aware that in a real production network, there would be far more stringent controls needed to be applied.
