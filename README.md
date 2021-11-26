@@ -7,6 +7,8 @@ Since the start of my schooling, I've known that automation was a big topic, tha
 
 In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I will be using Ansible to connect to all devices (except the firewall) and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
+I am able to interact with Git and make changes to this repository via the NAT node. The NAT node gives the ControlNode internet connectivity. 
+
 ### Task 1: Retrieving the version of the devices
 ##### After running 'ansible-playbook show_version.yaml'
 
