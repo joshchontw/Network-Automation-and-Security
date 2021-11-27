@@ -9,10 +9,11 @@ Since the start of my schooling, I've known that automation was a big topic, tha
 
 In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I will be using Ansible to connect to all devices (except the firewall) and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
-I am able to interact with Git and make changes to this repository via the NAT node. The NAT node gives the ControlNode internet connectivity. 
+I am able to interact with Git and make changes to this repository with the ControlNode via the NAT node. The NAT node gives the ControlNode internet connectivity. 
 
+-----------------------------------------------------------------------------------
 ### Task 1: Retrieving the version of the devices
-*After running [show_version.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/show_version.yaml)*
+After running [show_version.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/show_version.yaml):
 
 > In the interest of space, I will be showing snippets of the output, for this and all other tasks to come
 
@@ -30,7 +31,8 @@ This task will configure the proper port types on the switch and create sub-inte
 
 ![image](https://user-images.githubusercontent.com/81763406/143507543-520a9bd3-b36b-458e-b7e0-55d483811ded.png)
 
-> Ping from PC1 to PC2 after running playbook [vlan_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/vlan_config.yaml). The PC in VLAN100 is able to communicate with VLAN200 thanks to Router-on-a-stick capabilities of the Cisco router:
+After running playbook [vlan_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/vlan_config.yaml):
+> Ping from PC1 to PC2 . The PC in VLAN100 is able to communicate with VLAN200 thanks to Router-on-a-stick capabilities of the Cisco router:
 
 ![image](https://user-images.githubusercontent.com/81763406/143508544-e1ee367c-869c-40b5-9fa0-815dc86da5de.png)
 
@@ -52,14 +54,14 @@ By running [vlan_config.yaml](https://github.com/joshchontw/NetworkAutomationSec
 ### Task 3: Changing the routing protcol from RIP to OSPF
 This task transitions the network from RIP to OSPF.
 Attached are the routing tables for the routers, before the switch to OSPF. These routing tables were saved to text files, after running the playbook [save_route_table.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/save_route_table.yaml):
-> As we can see from the output, the routing protocol in place is RIP.
+> As we can see from the output, the routing protocol in place is RIP:
 
 ![image](https://user-images.githubusercontent.com/81763406/143508748-089d165f-8569-43ac-ad73-890e5df56738.png)
 ![image](https://user-images.githubusercontent.com/81763406/143508766-75b83f06-68d8-4b77-b0fc-bd4534e9b47d.png)
 
 
 After running the playbooks [ospf_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/ospf_config.yaml) and [save_route_table.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/save_route_table.yaml):
-> The routers are now learning their routes through OSPF
+> The routers are now learning their routes through OSPF:
 
 ![image](https://user-images.githubusercontent.com/81763406/143509179-05fa36a1-7d6c-4928-97d0-17f0db284078.png)
 ![image](https://user-images.githubusercontent.com/81763406/143509201-58d74573-5b09-4b15-8930-87ac422d6d5d.png)
