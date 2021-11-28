@@ -15,4 +15,4 @@ jobs:
     - name: YAML Lint
       uses: ibiqlik/action-yamllint@v3
       with:
-        file_or_dir: /Ansible
+        file_or_dir: ./Ansible
