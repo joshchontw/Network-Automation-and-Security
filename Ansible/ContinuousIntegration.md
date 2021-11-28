@@ -3,6 +3,7 @@ A lot of modern workplaces have fully adopted and embraced the concept of DevOps
 
 To do this, DevOps engineers are tasked with making sure the CI/CD process is smooth, meaning code is properly tested before it is integrated into the 'main' production version. This is obviously crucial. Without a good CI/CD pipeline, there would be many bugs and faults in the production version of an application. It would be akin to displaying cuts of beef on the main display without first checking and trimming the pieces.
 
+## Continuous Integration pipeline
 For my project, I have enlisted a module in GitHub Actions called yaml-lint to help examine the YAML Ansible playbooks for correct syntax. This project only ticks off the CI requirement of the CI/CD pipeline, the CD part is a work-in-progress. 
 
 Lint tests can be initiated with a commit or pull request. Since I am the sole contributor to my project, I will trigger the test by pushing a commit to the main branch.
@@ -17,3 +18,10 @@ As we can see in lines 24 and 25, there are syntax errors in the 'ospf_config.ya
 ![image](https://user-images.githubusercontent.com/81763406/143791126-c310cbe7-65ed-4265-9b1b-37cd5c388c81.png)
 
 This short example shows that a good CI/CD pipeline is of the utmost importance. It will give developers the peace of mind that any mistakes will be caught, and the IT operations can rest assured that there is another set of eyes helping to deploy and integrate code.
+
+## Email notification
+Another nice feature of the module is that push notifications of failed tests are sent to contributors of the repository. This ensures that all developers and operations team members are updated and aware of errors in files. This contributes to an agile environment.
+
+> Notification of failed run pushed to my email:
+
+![image](https://user-images.githubusercontent.com/81763406/143791578-4d4895ab-929d-4238-bd23-2a1b37241946.png)
