@@ -1,70 +1,45 @@
 # Start of the network/infrastructure automation journey
-Since the start of my schooling, I've known that automation was a big topic, that it was not a fad, and it was here to stay. In my eyes, the most prevalent tool for configuration management in the context of networking devices is and has been Ansible for a while. Join me as I try to become proficient at Ansible and earn a gold star, which would be my greatest accomplishment in life... :D
+This repository contains details on automating a network using Ansible and Nornir (a Python library). The Ansible portion can be found at  [Ansible](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Ansible). The Nornir portion can be found at [Nornir](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Nornir).
 
-*NOTE 1: Firewall setup is documented in [FortiGateFW.md](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/FortiGateFW.md)*
-
-*NOTE 2: Details on continuous integration with Github Actions is documented in [ContinuousIntegration.md](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/ContinuousIntegration.md)*
 ## My Lab
 ![image](https://user-images.githubusercontent.com/81763406/143507462-a1daa6ba-988c-4baa-ab8f-b310cca5a934.png)
 
-In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I will be using Ansible to connect to all devices (except the firewall) and perform various commands. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
+In my lab, there is a Cisco and Juniper router, a FortiGate firewall, and three Arista switches. I specifically set out to create a multi-vendor environment because while one company may use a Cisco-heavy stack, another company may prefer Juniper, and so on. 
 
 I am able to interact with Git and make changes to this repository with the ControlNode via the NAT node. The NAT node gives the ControlNode internet connectivity. 
 
------------------------------------------------------------------------------------
-### Task 1: Retrieving the version of the devices
-After running [show_version.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/show_version.yaml):
+---------------------------------------------------------
+# Fortigate Firewall setup
 
-> In the interest of space, I will be showing snippets of the output, for this and all other tasks to come
+> Main dashboard of the GUI
+![image](https://user-images.githubusercontent.com/81763406/143358495-179c92a8-79d6-4816-8fb7-c28d98eef744.png)
 
-![ciscoshowversion](https://user-images.githubusercontent.com/81763406/142037007-f3152ff2-3461-42a8-a89f-10bcf81a22cf.png)
-![aristashowversion](https://user-images.githubusercontent.com/81763406/142037081-0b9d1ded-6966-4aaa-9864-2e6cbb9b8d0d.png)
-![junipershowversion](https://user-images.githubusercontent.com/81763406/142037092-a54c56e8-cc6a-45af-984a-7b08c0433b4d.png)
-
-Just with one playbook, I am able to connect to multiple devices (different vendors also) and retrieve the version they are running. This is admittedly relatively simple, but it shows the power and potential of Ansible.
-
----------------------------------------------------------------------
-### Task 2: Creating VLANs on the switches and configuring Router-on-a-stick for the Cisco router
-This task will configure the proper port types on the switch and create sub-interfaces on the Cisco router so that PC1 and PC2 can communicate with each other and the rest of the network.
-
-> Ping (and failure) from PC1 to PC2 before running any VLAN configuration playbooks: 
-
-![image](https://user-images.githubusercontent.com/81763406/143507543-520a9bd3-b36b-458e-b7e0-55d483811ded.png)
-
-After running playbook [vlan_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/vlan_config.yaml):
-> Ping from PC1 to PC2 . The PC in VLAN100 is able to communicate with VLAN200 thanks to Router-on-a-stick capabilities of the Cisco router:
-
-![image](https://user-images.githubusercontent.com/81763406/143508544-e1ee367c-869c-40b5-9fa0-815dc86da5de.png)
-
-> Ping from PC2 to PC3 (in subnet 192.168.123.0/24):
-
-![image](https://user-images.githubusercontent.com/81763406/143511480-790a8b53-6335-4d71-a07c-f76e67c3db15.png)
-
-> Showing the sub-interfaces on the Cisco router:
-
-![image](https://user-images.githubusercontent.com/81763406/143508564-83eb1155-3d01-4bb0-b8a0-ac88b5cb4263.png)
-
-> Showing the trunk and access ports on the Arista switch:
-
-![image](https://user-images.githubusercontent.com/81763406/143508612-157b9182-4b24-49cc-b6e3-c9ea1a38049f.png)
-
-By running [vlan_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/vlan_config.yaml), the control machine is able to SSH into the network devices and apply VLAN configuration all at once.
-
-----------------------------------------
-### Task 3: Changing the routing protcol from RIP to OSPF
-This task transitions the network from RIP to OSPF.
-Attached are the routing tables for the routers, before the switch to OSPF. These routing tables were saved to text files, after running the playbook [save_route_table.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/save_route_table.yaml):
-> As we can see from the output, the routing protocol in place is RIP:
-
-![image](https://user-images.githubusercontent.com/81763406/143508748-089d165f-8569-43ac-ad73-890e5df56738.png)
-![image](https://user-images.githubusercontent.com/81763406/143508766-75b83f06-68d8-4b77-b0fc-bd4534e9b47d.png)
+> Firewall interfaces
+![image](https://user-images.githubusercontent.com/81763406/143498973-7fbd2848-1dc3-498a-916e-02c44c27c96f.png)
 
 
-After running the playbooks [ospf_config.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/ospf_config.yaml) and [save_route_table.yaml](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/playbooks/save_route_table.yaml):
-> The routers are now learning their routes through OSPF:
+## Rule to allow the control node to SSH into the devices and perform commands
+![image](https://user-images.githubusercontent.com/81763406/143372911-0c958854-deb6-4e9d-bf28-0fa0b1ae0c3f.png)
+In our case, the service has to be set to 'ALL'. Ansible remotely logs into Juniper devices not through the SSH port of 22, but rather port 830 for Netconf. This FortiGate firewall is unable to specify port 830/Netconf as a service, hence the need to set the service to all allowed.
 
-![image](https://user-images.githubusercontent.com/81763406/143509179-05fa36a1-7d6c-4928-97d0-17f0db284078.png)
-![image](https://user-images.githubusercontent.com/81763406/143509201-58d74573-5b09-4b15-8930-87ac422d6d5d.png)
+> Details of the source and destination parameters
+> 
+![image](https://user-images.githubusercontent.com/81763406/143490466-08da7a44-caa4-429a-a5dc-bf77cc7b0669.png)
+![image](https://user-images.githubusercontent.com/81763406/143372978-54e627a1-b599-4929-922d-9807beded2b4.png)
+![143462999-40b651ad-80b9-4797-9c06-ec6752649ba8](https://user-images.githubusercontent.com/81763406/143498513-131c595e-015e-4016-8716-eb4d4a8d71ac.png)
 
------------------------------------------
-### Task 4: Adding access control lists on the routers
+
+Just enabling this rule will not allow our control node to remotely access our network devices. For that, we have to enable OSPF on the FortiGate firewall, to learn and share routes with the whole network.
+## OSPF configuration on the router
+![image](https://user-images.githubusercontent.com/81763406/143462999-40b651ad-80b9-4797-9c06-ec6752649ba8.png)
+
+> Output showing that the Cisco router learned the route to 192.168.125.0/24 via OSPF
+![image](https://user-images.githubusercontent.com/81763406/143498731-c3ec7fb2-9a26-4ae8-9c82-8f7f22abc376.png)
+
+> Output showing that the control node can ping our Cisco router
+![image](https://user-images.githubusercontent.com/81763406/143498833-6fc5930c-1ca4-4a13-b035-b386ec37966f.png)
+
+> Output showing that the control node CANNOT ping PC5 (by design). We only need the control node to SSH into network devices
+![image](https://user-images.githubusercontent.com/81763406/143499109-0d92ef7f-4f70-4bb7-b3e8-50683a8d806a.png)
+
+#### All of this shows that the firewall is not preventing our control node from accessing our network. For our purposes, the firewall serves its purpose. I am well aware that in a real production network, there would be far more stringent controls needed to be applied.
