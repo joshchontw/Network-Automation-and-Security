@@ -13,8 +13,8 @@
       register: output
 
     - name: Save route table to file
-      copy: 
-        content="{{ output.stdout[0] }}" 
+      copy:
+        content="{{ output.stdout[0] }}"
         dest="./{{ inventory_hostname }}_route_table.txt"
 
 - name: Show route table on Juniper
@@ -29,8 +29,8 @@
       register: output
 
     - name: Save route table to file
-      copy: 
-        content="{{ output.stdout[0] }}" 
+      copy:
+        content="{{ output.stdout[0] }}"
         dest="./{{ inventory_hostname }}_route_table.txt"
 
 ...

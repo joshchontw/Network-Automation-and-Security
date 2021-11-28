@@ -1,5 +1,5 @@
 ---
-### This playbook shows the version that the 
+### This playbook shows the version that the
 ### Cisco, Arista, and Juniper devices are running
 
 - name: Show version on Cisco
@@ -23,7 +23,7 @@
   hosts: arista
 
   tasks:
-    - name : Show version - Arista
+    - name: Show version - Arista
       eos_command:
         commands: show version
       register: output
@@ -38,7 +38,7 @@
   hosts: juniper
 
   tasks:
-    - name : Show version - Juniper
+    - name: Show version - Juniper
       junos_command:
         commands: show version
       register: output
@@ -47,4 +47,3 @@
       debug:
         msg: "{{ output.stdout_lines }}"
 ...
-
