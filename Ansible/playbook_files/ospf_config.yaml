@@ -1,5 +1,5 @@
 ---
-### This playbook configures the OSPF routing protocol 
+### This playbook configures the OSPF routing protocol
 ### on a Cisco and Juniper router
 
 - name: Configure OSPF on Cisco
@@ -44,4 +44,3 @@
           - set protocols ospf area 0 interface em2.0
           - set protocols ospf area 0 interface em3.0
 ...
-
