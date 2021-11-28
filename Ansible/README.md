@@ -58,4 +58,5 @@ After running the playbooks [ospf_config.yaml](https://github.com/joshchontw/Net
 ![image](https://user-images.githubusercontent.com/81763406/143772825-ca7db1aa-9eda-4b90-ad59-a32383d2cdd3.png)
 
 -----------------------------------------
-### Task 4: Adding access control lists on the routers
+### Task 4: Controlling traffic on the routers
+This task adds ACLs on the Cisco router and firewall filters on the Juniper router to allow only specified traffic through the routers. This is done to ensure that our attack vector is minimized as much as possible.
