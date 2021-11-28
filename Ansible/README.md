@@ -13,7 +13,7 @@ After running [show_version.yaml](https://github.com/joshchontw/NetworkAutomatio
 ![aristashowversion](https://user-images.githubusercontent.com/81763406/142037081-0b9d1ded-6966-4aaa-9864-2e6cbb9b8d0d.png)
 ![junipershowversion](https://user-images.githubusercontent.com/81763406/142037092-a54c56e8-cc6a-45af-984a-7b08c0433b4d.png)
 
-Just with one playbook, I am able to connect to multiple devices (different vendors also) and retrieve the version they are running. This is admittedly relatively simple, but it shows the power and potential of Ansible.
+Just with one playbook, I am able to connect to multi-vendor devices and retrieve the version they are running. This is admittedly relatively simple, but it shows the power and potential of Ansible.
 
 ---------------------------------------------------------------------
 ### Task 2: Creating VLANs on the switches and configuring Router-on-a-stick for the Cisco router
@@ -58,4 +58,5 @@ After running the playbooks [ospf_config.yaml](https://github.com/joshchontw/Net
 ![image](https://user-images.githubusercontent.com/81763406/143772825-ca7db1aa-9eda-4b90-ad59-a32383d2cdd3.png)
 
 -----------------------------------------
-### Task 4: Adding access control lists on the routers
+### Task 4: Controlling traffic on the routers
+This task adds ACLs on the Cisco router and firewall filters on the Juniper router to allow only specified traffic through the routers. This is done to ensure that our attack vector is minimized as much as possible.
