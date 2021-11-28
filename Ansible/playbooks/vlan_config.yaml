@@ -1,5 +1,5 @@
 ---
-### This playbook configures VLANs on the Arista switch 
+### This playbook configures VLANs on the Arista switch
 ### and subinterfaces on Cisco router
 
 - name: Configure VLANs on Arista switch
@@ -19,7 +19,7 @@
         mode: access
         access_vlan: 100
     - name: Ethernet3 configuration
-      eos_l2_interface:        
+      eos_l2_interface:
         name: Ethernet3
         mode: access
         access_vlan: 200
@@ -45,6 +45,5 @@
           - ip address 192.168.200.1 255.255.255.0
           - no shutdown
         parents: interface fastethernet0/1.200
-
 ...
 

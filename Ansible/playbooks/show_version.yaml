@@ -1,5 +1,6 @@
 ---
-### This playbook shows the version that the Cisco, Arista, and Juniper devices are running
+### This playbook shows the version that the 
+### Cisco, Arista, and Juniper devices are running
 
 - name: Show version on Cisco
   gather_facts: true
@@ -13,7 +14,7 @@
       register: output
 
     - name: Show version output
-      debug: 
+      debug:
         msg: "{{ output.stdout_lines }}"
 
 - name: Show version on Arista
@@ -21,7 +22,7 @@
   connection: network_cli
   hosts: arista
 
-  tasks: 
+  tasks:
     - name : Show version - Arista
       eos_command:
         commands: show version
