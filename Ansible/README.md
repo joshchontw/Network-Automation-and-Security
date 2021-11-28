@@ -13,7 +13,7 @@ After running [show_version.yaml](https://github.com/joshchontw/NetworkAutomatio
 ![aristashowversion](https://user-images.githubusercontent.com/81763406/142037081-0b9d1ded-6966-4aaa-9864-2e6cbb9b8d0d.png)
 ![junipershowversion](https://user-images.githubusercontent.com/81763406/142037092-a54c56e8-cc6a-45af-984a-7b08c0433b4d.png)
 
-Just with one playbook, I am able to connect to multiple devices (different vendors also) and retrieve the version they are running. This is admittedly relatively simple, but it shows the power and potential of Ansible.
+Just with one playbook, I am able to connect to multi-vendor devices and retrieve the version they are running. This is admittedly relatively simple, but it shows the power and potential of Ansible.
 
 ---------------------------------------------------------------------
 ### Task 2: Creating VLANs on the switches and configuring Router-on-a-stick for the Cisco router
