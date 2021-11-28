@@ -13,7 +13,9 @@
       register: output
 
     - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
+      copy: 
+        content="{{ output.stdout[0] }}" 
+        dest="./{{ inventory_hostname }}_route_table.txt"
 
 - name: Show route table on Juniper
   gather_facts: true
@@ -21,13 +23,14 @@
   hosts: juniper
 
   tasks:
-    - name : Show route table - Juniper
+    - name: Show route table - Juniper
       junos_command:
         commands: show route
       register: output
 
     - name: Save route table to file
-      copy: content="{{ output.stdout[0] }}" dest="./{{ inventory_hostname }}_route_table.txt"
+      copy: 
+        content="{{ output.stdout[0] }}" 
+        dest="./{{ inventory_hostname }}_route_table.txt"
 
 ...
-

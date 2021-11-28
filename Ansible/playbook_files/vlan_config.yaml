@@ -46,4 +46,3 @@
           - no shutdown
         parents: interface fastethernet0/1.200
 ...
-
