@@ -42,4 +42,4 @@ Just enabling this rule will not allow our control node to remotely access our n
 > Output showing that the control node CANNOT ping PC5 (by design). We only need the control node to SSH into network devices
 ![image](https://user-images.githubusercontent.com/81763406/143499109-0d92ef7f-4f70-4bb7-b3e8-50683a8d806a.png)
 
-#### All of this shows that the firewall is not preventing our control node from accessing our network. For our purposes, the firewall serves its purpose. I am well aware that in a real production network, there would be far more stringent controls needed to be applied.
+All of this shows that the firewall is not preventing our control node from accessing our network. For our purposes, the firewall serves its purpose. I am well aware that in a real production network, there would be far more stringent controls needed to be applied.
