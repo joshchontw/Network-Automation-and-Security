@@ -1,0 +1,56 @@
+---
+### This playbook configures ACLs on the Cisco router
+### and firewall filters on the Juniper router
+
+- name: Configure ACLs on Cisco
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+
+  tasks:
+    - name: ACL configuration
+      cisco.ios.ios_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: DenyVLAN100
+            acl_type: standard
+            aces:
+            - grant: deny
+              source:
+                address: 192.168.100.2
+            - grant: permit
+              source:
+                address: 192.168.200.2
+        state: merged
+
+- name: Apply ACL to interface FastEthernet2/0
+  gather_facts: true
+  connection: network_cli
+  hosts: cisco
+
+  tasks:
+    - name: Apply ACL
+      cisco.ios.ios_acl_interfaces:
+        config:
+        - name: FastEthernet2/0
+          access_groups:
+          - afi: ipv4
+            acls:
+            - name: DenyVLAN100
+              direction: out
+        state: merged
+         
+#- name: Configure firewall filter on Juniper
+#  gather_facts: true
+#  connection: netconf
+#  hosts: juniper
+
+#  tasks:
+ #   - name: Firewall filter configuration
+  #    junos_config:
+   #     lines:
+    #      - set routing-options router-id 192.168.121.1
+     #     - set protocols ospf area 0 interface em2.0
+      #    - set protocols ospf area 0 interface em3.0
+...
