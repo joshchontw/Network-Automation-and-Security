@@ -1,5 +1,5 @@
 # Start of the network/infrastructure automation journey
-This repository contains details on automating a network using Ansible and Nornir (a Python library). The Ansible portion can be found at  [Ansible](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Ansible). The Nornir portion can be found at [Nornir](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Nornir).
+This repository contains details on automating a network using [Ansible](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Ansible) and [Nornir](https://github.com/joshchontw/NetworkAutomationSecurityLab/tree/main/Nornir) (a Python library).
 
 ## My Lab
 ![image](https://user-images.githubusercontent.com/81763406/143507462-a1daa6ba-988c-4baa-ab8f-b310cca5a934.png)
