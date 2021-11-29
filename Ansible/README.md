@@ -59,9 +59,7 @@ After running the playbooks [ospf_config.yaml](https://github.com/joshchontw/Net
 
 -----------------------------------------
 ### Task 4: Controlling traffic on the routers
-This task adds ACLs on the Cisco router and firewall filters on the Juniper router to allow only specified traffic through the routers. This is done to ensure that our attack vector is minimized as much as possible.
-
-My goal is to deny pings from PC1 and PC2 to PC3. To do this, I will configure an ACL on the Cisco router denying VLAN 100 traffic outbound and a firewall filter on the Juniper router to deny VLAN 200 traffic inbound, so that we can see the differences in syntax between the two providers.
+This task adds ACLs on the Cisco router and firewall filters on the Juniper router to deny pings from PC1 and PC2 to PC3. To do this, I will configure an ACL on the Cisco router denying PC1 traffic outbound and a firewall filter on the Juniper router to deny PC2 traffic inbound, so that we can see the differences in syntax between the two providers.
 
 For the ACL on the Cisco router, I will add an entry to permit traffic from PC2 outbound, in addition to the entry denying traffic from PC1. This is because ACLs have an implcity deny all rule by default. We will be configuring the firewall filter on the Juniper router to deny traffic from PC2, so we want to permit PC2 traffic out of the Cisco router for it to reach the Juniper router.
 
