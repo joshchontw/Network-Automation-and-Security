@@ -15,15 +15,15 @@
               - name: DenyVLAN100
                 acl_type: standard
                 aces:
-                - grant: deny
-                  source:
-                    address: 192.168.100.2
-                - grant: permit
-                  source:
-                    address: 192.168.200.2
-                - grant: permit
-                  source:
-                    address: 192.168.124.2
+                  - grant: deny
+                    source:
+                      address: 192.168.100.2
+                  - grant: permit
+                    source:
+                      address: 192.168.200.2
+                  - grant: permit
+                    source:
+                      address: 192.168.124.2
         state: merged
 
 - name: Apply ACL to interface FastEthernet2/0
@@ -39,8 +39,8 @@
           access_groups:
             - afi: ipv4
               acls:
-              - name: DenyVLAN100
-                direction: out
+                - name: DenyVLAN100
+                  direction: out
         state: merged
 
 - name: Configure ACL on Juniper
@@ -56,10 +56,10 @@
             acls:
               - name: DenyVLAN200
                 aces:
-                - name: deny_ping
-                  grant: deny
-                  source:
-                    address: 192.168.200.2
+                  - name: deny_ping
+                    grant: deny
+                    source:
+                      address: 192.168.200.2
         state: merged
 
 - name: Apply ACL to interface em3
@@ -75,7 +75,7 @@
             access_groups:
               - afi: ipv4
                 acls:
-                - name: DenyVLAN200
-                  direction: out
+                  - name: DenyVLAN200
+                    direction: out
         state: merged
 ...
