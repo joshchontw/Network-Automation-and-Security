@@ -35,12 +35,12 @@
     - name: Apply ACL
       cisco.ios.ios_acl_interfaces:
         config:
-        - name: FastEthernet2/0
-          access_groups:
-            - afi: ipv4
-              acls:
-                - name: DenyVLAN100
-                  direction: out
+          - name: FastEthernet2/0
+            access_groups:
+              - afi: ipv4
+                acls:
+                  - name: DenyVLAN100
+                    direction: out
         state: merged
 
 - name: Configure ACL on Juniper
