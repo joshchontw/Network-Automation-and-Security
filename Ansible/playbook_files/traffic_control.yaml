@@ -1,8 +1,7 @@
 ---
-### This playbook configures ACLs on the Cisco router
-### and firewall filters on the Juniper router
+### This playbook configures ACLs on the Cisco and Juniper routers
 
-- name: Configure ACLs on Cisco
+- name: Configure ACL on Cisco
   gather_facts: true
   connection: network_cli
   hosts: cisco
@@ -22,6 +21,9 @@
             - grant: permit
               source:
                 address: 192.168.200.2
+            - grant: permit
+              source:
+                address: 192.168.124.2
         state: merged
 
 - name: Apply ACL to interface FastEthernet2/0
@@ -41,16 +43,39 @@
               direction: out
         state: merged
          
-#- name: Configure firewall filter on Juniper
-#  gather_facts: true
-#  connection: netconf
-#  hosts: juniper
+- name: Configure ACL on Juniper
+  gather_facts: true
+  connection: netconf
+  hosts: juniper
 
-#  tasks:
- #   - name: Firewall filter configuration
-  #    junos_config:
-   #     lines:
-    #      - set routing-options router-id 192.168.121.1
-     #     - set protocols ospf area 0 interface em2.0
-      #    - set protocols ospf area 0 interface em3.0
+  tasks:
+    - name: ACL configuration
+      junipernetworks.junos.junos_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: DenyVLAN200
+            aces:
+            - name: deny_ping
+              grant: deny
+              source:
+                address: 192.168.200.2
+        state: merged
+
+- name: Apply ACL to interface em3
+  gather_facts: true
+  connection: netconf
+  hosts: juniper
+
+  tasks:
+    - name: Apply ACL
+      junipernetworks.junos.junos_acl_interfaces:
+        config:
+        - name: em3
+          access_groups:
+          - afi: ipv4
+            acls:
+            - name: DenyVLAN200
+              direction: out
+        state: merged 
 ...
