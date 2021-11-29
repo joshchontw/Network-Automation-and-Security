@@ -12,18 +12,18 @@
         config:
           - afi: ipv4
             acls:
-            - name: DenyVLAN100
-              acl_type: standard
-              aces:
-              - grant: deny
-                source:
-                  address: 192.168.100.2
-              - grant: permit
-                source:
-                  address: 192.168.200.2
-              - grant: permit
-                source:
-                  address: 192.168.124.2
+              - name: DenyVLAN100
+                acl_type: standard
+                aces:
+                - grant: deny
+                  source:
+                    address: 192.168.100.2
+                - grant: permit
+                  source:
+                    address: 192.168.200.2
+                - grant: permit
+                  source:
+                    address: 192.168.124.2
         state: merged
 
 - name: Apply ACL to interface FastEthernet2/0
@@ -37,10 +37,10 @@
         config:
         - name: FastEthernet2/0
           access_groups:
-          - afi: ipv4
-            acls:
-            - name: DenyVLAN100
-              direction: out
+            - afi: ipv4
+              acls:
+              - name: DenyVLAN100
+                direction: out
         state: merged
 
 - name: Configure ACL on Juniper
@@ -54,12 +54,12 @@
         config:
           - afi: ipv4
             acls:
-            - name: DenyVLAN200
-              aces:
-              - name: deny_ping
-                grant: deny
-                source:
-                  address: 192.168.200.2
+              - name: DenyVLAN200
+                aces:
+                - name: deny_ping
+                  grant: deny
+                  source:
+                    address: 192.168.200.2
         state: merged
 
 - name: Apply ACL to interface em3
@@ -73,9 +73,9 @@
         config:
           - name: em3
             access_groups:
-            - afi: ipv4
-              acls:
-              - name: DenyVLAN200
-                direction: out
+              - afi: ipv4
+                acls:
+                - name: DenyVLAN200
+                  direction: out
         state: merged
 ...
