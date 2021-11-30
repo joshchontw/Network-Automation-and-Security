@@ -1,0 +1,17 @@
+---
+Cisco:
+    hostname: 192.168.124.1
+    platform: 'ios'
+    username: cisco
+    password: cisco
+    groups:
+      - cisco_routers
+
+Juniper:
+    hostname: 192.168.121.1
+    platform: 'junos'
+    username: ansible
+    password: Juniper
+    groups:
+      - juniper_routers
+...

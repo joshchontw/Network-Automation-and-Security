@@ -1,0 +1,9 @@
+---
+
+cisco_routers:
+    platform: 'ios'
+
+juniper_routers:
+    platform: 'junos'
+
+...
