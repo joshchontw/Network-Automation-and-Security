@@ -6,4 +6,7 @@ cisco_routers:
 juniper_routers:
     platform: 'junos'
 
+arista_switches:
+    platform: 'eos'
+
 ...

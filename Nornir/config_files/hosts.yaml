@@ -1,4 +1,5 @@
 ---
+
 Cisco:
     hostname: 192.168.124.1
     platform: 'ios'
@@ -14,4 +15,21 @@ Juniper:
     password: Juniper
     groups:
       - juniper_routers
+
+Arista1:
+    hostname: 192.168.1.100
+    platform: 'eos'
+    username: arista
+    password: arista
+    groups:
+      - arista_switches
+
+Arista2:
+    hostname: 192.168.123.100
+    platform: 'eos'
+    username: arista
+    password: arista
+    groups:
+      - arista_switches
+
 ...
