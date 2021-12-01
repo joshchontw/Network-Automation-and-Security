@@ -33,7 +33,3 @@ for device in devices:
 		loopback_interface = net_connect.send_config_set(juniper_commands)
 		loopback_interface += net_connect.commit()
 		print(loopback_interface)
-
-
-
-
