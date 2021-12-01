@@ -6,15 +6,20 @@ As there are pros and cons to both, there is no need to 'pick' one over the othe
 
 ---------------------------------------------------------------
 ### Task 1: Showing the interfaces on the routers
-After running [show_interfaces.py](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/Nornir/scripts/show_interfaces.py):
+After running [show_interfaces.py](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/Nornir/config_files/show_interfaces.py):
+> In the interest of space, I will be showing snippets of the output, for this and all other tasks to come
 
-![image](https://user-images.githubusercontent.com/81763406/144261150-94e2e238-7290-4f02-8848-1defd0ddf4b2.png)
-
-I've set up the script to ask for the passwords of the two respective routers, instead of hardcoding it. Compared to doing this task on Ansible, Nornir does it much quicker.
+![image](https://user-images.githubusercontent.com/81763406/144286978-63e997e2-06a9-4151-98d0-76232dc0e44e.png)
+![image](https://user-images.githubusercontent.com/81763406/144287061-93b5c5a7-f021-49d9-a5ca-e3c2c2e8e864.png)
 
 ### Task 2: Configuring a loopback interface on the routers
-After running [config_loopback.py](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/Nornir/scripts/config_loopback.py):
+After running [config_loopback.py](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/Nornir/config_files/config_loopback.py):
 
-![image](https://user-images.githubusercontent.com/81763406/144262203-e03007d7-0801-4063-b354-c38900f1d6e9.png)
-![image](https://user-images.githubusercontent.com/81763406/144262296-b8d7f254-cbd6-448a-ad30-8e6afd8d5a09.png)
+![image](https://user-images.githubusercontent.com/81763406/144287256-ce511f60-34a2-4178-8d51-f6af48feb03e.png)
+
+### Task 3: Setting hostnames on the Arista switches
+After running [set_hostname.py](https://github.com/joshchontw/NetworkAutomationSecurityLab/blob/main/Nornir/config_files/set_hostname.py):
+
+![image](https://user-images.githubusercontent.com/81763406/144306256-1c4227ab-4c77-4777-aa07-092566236a56.png)
+
 
